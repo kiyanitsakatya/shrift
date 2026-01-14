@@ -1,7 +1,7 @@
 def atbash_transform(text: str) -> str:
 
     result = []
-
+    
     for char in text:
         if 'a' <= char <= 'z':
             result.append(chr(ord('z') - (ord(char) - ord('a'))))
@@ -21,36 +21,44 @@ def atbash_transform(text: str) -> str:
             result.append('Ё')
         else:
             result.append(char)
-
+    
     return ''.join(result)
 
-    text = input("\nВведите текст: ").strip()
 
+def simple_interface():
+    print("=" * 50)
+    print("ШИФР АТБАШ")
+    print("=" * 50)
+    
+
+    text = input("\nВведите текст: ").strip()
+    
     if not text:
         print("Ошибка: текст не может быть пустым!")
         return
+    
 
     print("\nВыберите действие:")
     print("1. Зашифровать")
     print("2. Расшифровать")
-
+    
     choice = input("Введите 1 или 2: ").strip()
-
+    
     if choice not in ['1', '2']:
         print("Ошибка: неверный выбор!")
         return
-
+    
+  
     result = atbash_transform(text)
+    
 
 
+    
     if choice == '1':
-        print("РЕЗУЛЬТАТ ШИФРОВАНИЯ:")
         print(result)
     else:
-        print("РЕЗУЛЬТАТ ДЕШИФРОВАНИЯ:")
         print(result)
-
-
+    
 
 
 if __name__ == "__main__":
